@@ -1,0 +1,23 @@
+# Individual C Programs Execution Make File
+
+#Speciy the name of your program here	
+ProgramName = helloworld1
+
+# commands:
+compileAndLink:
+	gcc $(ProgramName).c -o outputs/$(ProgramName).exe
+
+run:
+	.\outputs/$(ProgramName)
+
+genppf:
+	gcc -E $(ProgramName).c -o outputs/$(ProgramName).i
+
+genasm: genppf
+	gcc -S outputs/$(ProgramName).i -o outputs/$(ProgramName).s
+
+genulobj: genasm
+	gcc -C outputs/$(ProgramName).s -o outputs/$(ProgramName).o
+
+clean:
+	del /Q outputs\$(ProgramName).*

@@ -1,0 +1,57 @@
+Command to simply compile a standard C source file to get an object file:
+
+gcc -c main.c
+
+To compile it completely:
+
+gcc main.c
+
+To give the generated file a custom name:
+
+gcc main.c -o main.o
+
+To generate intermediary files from C Source file:
+
+gcc -e ourprogram.c -o preprocessofile.i	
+gcc -s 	preprocessorfile.i -o assembly.s
+gcc -o assembly.s -o objectcode.o
+gcc objectcode.o -o app.exe
+
+Generate .exe from C Source file directly
+
+gcc program.c -o app.exe
+
+Sample C Project Files:
+source.hpp -> interface
+source.cpp -> impl
+main.cpp -> our code entry function
+
+Command to compile and generate the exe file of the above C Project
+g++ main.cpp source.cpp -o path/filename
+
+To generate .dot file which contains compiler source code pictorial graph represenation: 
+
+g++ -fdump-tree-all-graph -g main.cpp source.cpp
+
+To view the .dot file in Linux/UNIX based systems: (Need xdot to be installed in Linux)
+
+xdot main.cpp.xyz.dot
+
+To view it in windows, we need a dependency
+(This may help: https://github.com/KDE/kgraphviewer)
+
+
+objdump -> Its a program that displays information about object files.
+-> Used to examine the contents of the compiled binaries and object files
+
+to view the detailed information about an object file such as its sections, headers, symbols, etc, we can use:
+
+objdump -x objfilename.o
+
+
+Useful C Programming links:
+
+https://utat-ss.readthedocs.io/en/master/c-programming/print-formatting.html
+
+https://utat-ss.readthedocs.io/en/master/c-programming/header-files.html#define
+
