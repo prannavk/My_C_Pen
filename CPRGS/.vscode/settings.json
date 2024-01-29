@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "AddPrg.C": "cpp"
+        "AddPrg.C": "cpp",
+        "C1.C": "cpp",
+        "C2.C": "cpp",
+        "NewPrg.C": "cpp"
     }
 }
