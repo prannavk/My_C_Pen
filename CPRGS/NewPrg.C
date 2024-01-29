@@ -1,7 +1,10 @@
 #include<stdio.h>
+#include<conio.h>
 
 int main() {
-    printf("ABCDEGGHIJ\n");
-    printf("ABC");
+    printf("\nABCDEGGHIJ\n");
+    printf("ABC\n");
+
+    getch();
     return 0;
 }
