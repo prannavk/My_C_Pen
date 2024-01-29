@@ -1,7 +1,7 @@
 # Individual C Programs Execution Make File
 
 #Speciy the name of your program here	
-ProgramName = helloworld1
+ProgramName = AddPrg
 
 # commands:
 compileAndLink:
