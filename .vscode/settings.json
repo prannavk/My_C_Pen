@@ -2,6 +2,7 @@
     "files.associations": {
         "NewPrg.C": "cpp",
         "sample.C": "cpp",
-        "main.C": "cpp"
+        "main.C": "cpp",
+        "AddPrg.C": "cpp"
     }
 }
