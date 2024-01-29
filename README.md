@@ -10,7 +10,10 @@ Repo for all the C/C++ programs, Source codes and projects
     - install it from here: [mingw install](https://sourceforge.net/projects/mingw/)
 2. GNU Make for Windows
     - Build tool for C/C++ programs
-    - install it from here: [GnuWin Make](https://sourceforge.net/projects/gnuwin32/)
+    - (Optional) install Sed from here: [GnuWin32 Sed](https://sourceforge.net/projects/gnuwin32/)
+    - To install Make on Windows 10 or 11, open cmd and type the following command:
+      > winget install GnuWin32.Make
+    - If the above command did not work, refer the points and links below: 
     - article on how to install make: [make how](https://leangaurav.medium.com/how-to-setup-install-gnu-make-on-windows-324480f1da69)
     - article on how to run make: [make run](https://stackoverflow.com/questions/2532234/how-to-run-a-makefile-in-windows)
 
