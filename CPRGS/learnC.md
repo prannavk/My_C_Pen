@@ -13,9 +13,9 @@
 ## i/o
 
 - scanf(“%X”, &variableOfXType);
-  > where %X is the format specifier in C. It is a way to tell the compiler what type of data is in a variable and & is the address operator in C, which tells the compiler to change the real value of this variable, stored at this address in the memory. 
+  > where %X is the format specifier in C. It is a way to tell the compiler what type of data is in a variable and & is the address operator in C, which tells the compiler to scan the value for this variable, and store it at this address in the memory. 
 - printf(“%X”, variableOfXType);
-  > where %X is the format specifier in C. It is a way to tell the compiler what type of data is in a variable and & is the address operator in C, which tells the compiler to change the real value of this variable, stored at this address in the memory.
+  > where %X is the format specifier in C. It is a way to tell the compiler what type of data is in a variable. It prints the data in the variable in that specified format.
 
 ---
 
