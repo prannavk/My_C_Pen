@@ -1,7 +1,9 @@
 # Individual C Programs Execution Make File
 
+# NOTE: To be able to run the following make commands, your cwd needs to be CPRGS dir
+
 #Speciy the name of your program here	
-ProgramName = helloworld1
+ProgramName = C2
 
 # commands:
 compileAndLink:
