@@ -3,7 +3,7 @@
 # NOTE: To be able to run the following make commands, your cwd needs to be CPRGS dir
 
 #Speciy the name of your program here	
-ProgramName = C2
+ProgramName = T4
 
 # commands:
 compileAndLink:

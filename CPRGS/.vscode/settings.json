@@ -3,6 +3,17 @@
     "AddPrg.C": "cpp",
     "C1.C": "cpp",
     "C2.C": "cpp",
-    "NewPrg.C": "cpp"
+    "NewPrg.C": "cpp",
+    "T1.C": "cpp",
+    "CL.C": "cpp",
+    "T2.C": "cpp",
+    "CB1.C": "cpp",
+    "C3E.C": "cpp",
+    "CP2.C": "cpp",
+    "CP3s.C": "cpp",
+    "CM3.C": "cpp",
+    "SwapPrg.C": "cpp",
+    "T4.C": "cpp",
+    "T5.C": "cpp"
   }
 }
