@@ -32,6 +32,9 @@ int main()
     int ar4[7] = {25, 34};
     printArray(ar4, 7);
 
+    int aw[] = {1, 5, 8};
+    printArray(aw, 3);
+    
     printf("\n");
     return 0;
 }

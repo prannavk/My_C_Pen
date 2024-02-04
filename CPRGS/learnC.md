@@ -15,7 +15,7 @@
     - For int, if(value != 0) true else false
     - For char, if(value != NULL i.e. '\0') true else false
     - For pointer, if(value != NULL pointer) true else false
-  - Logical And is denoted by `&&` and bitwise And is denoted by a single ampersand `&` 
+  - Logical And is denoted by `&&` and bitwise And is denoted by a single ampersand `&`
     - This is the Same with OR, for logical its `||` and for bitwise - `|`
 - a << b = `(a * 2 Power b)`.
   - (In left shift, value of 'a' increases as we multiple by 2 Power)
@@ -82,7 +82,7 @@ Note:
 - example:
   ```C
     float *q;
-    q + 6; // = q + (4 * 6)
+    q - 6; // = q - (4 * 6)
   ```
 
 Note:
@@ -103,7 +103,7 @@ Note:
 - example:
   ```C
     double *p, *q;
-    double *res = (p - q);
+    int res = (p - q);
   ```
 - Say `p` has 480 and `q` has 400, then `res` will store <b>10</b> => ( as (480 - 400) divided by size of double pter i.e. 8 Bytes)
 
@@ -184,9 +184,311 @@ Note:
     // Output of above statement is data at address 210
   ```
 
+## 2D Arrays
+
+- 2D Arrays initilized as `array_name[rows][columns]`
+- To store 2D arrays we have 2 schemes:
+  - Row Major Order (Used by Default in C)
+  - Column Major Order
+- In Row Major Order: Basically Address of `A[i][j]` = Base + Size of each element(i \* n + j)
+- In Column Major Order: Basically Address of `A[i][j]` = Base + Size of each element(j \* m + i)
+- Note: n is number of coulmns and m is number of rows
+- Declaration of Multidimensional arrays in C must have bounds for all dimensions except the first
+- Here, in 2D Arrays:
+  - `A` -> Gives address of first row
+  - `A + 1` -> Addition by Size of row
+  - `A + or - n` -> Addition/Subtraction by (n \* size of row)
+  - `A[0]` -> Gives address of zeroth i.e. first row in 2D Array (or ith row if `A[i]`)
+  - `A[0] + 1` -> Addition by size of row
+  - `&A` -> Gives Address of Array
+  - `&A + 1` -> Addition by size of complete array
+  - `&A[2][3]` -> Gives Address of an element
+  - `&A[2][3] + 1` -> Addition by size of an element
+- Accessing an element inside a 2D array with the help of pointer dereferencing:
+  - For `A[i][j]` -> _(_(A + i) + j)
+
+## Type Converions
+
+- Converting the type of 1 variable to another for different purposes
+- Its of 2 type: Implicit and Explicit
+- <b>Note:</b> Type casting has higher precedence than division (In the below example (double) is executed before division is done)
+  ```C
+    int a = 5, b = 2;
+    double c = (double) a / b;
+    // Here a is converted to double first then divided by b. Since b is an int, for compatibility, C implicitly 'promotes' b to a double
+  ```
+
+## Structure and Union
+
+### Structure
+
+- Is a User-Defined Data Type
+- Used to store collection of heterogenous data elements
+- We define one using the 'struct' keyword as:
+  ```C
+  struct student
+  {
+    int rno;
+    int age;
+    float fees;
+  };
+  ```
+- If we try to access a member of a struct using a variable of that struct type, we use `dot` operator and if we try to access using a pointer we use `->`.
+
+  1. structVar.Member (Variable to Member Access)
+  2. structPtr -> Member (Pointer to Member Access)
+
+- Note: Pointer Arithmetic using Pointer to struct be like
+  - Say 'P' is a pointer to a struct type variable then if we do (P + i), it will add I \* the size of the entire struct memory space. (To calculate the struct memory space we need to add the memory sizes of all its member types)
+
+### Union
+
+- It is an overlapping structure
+- The element with the highest memory space gets memory allocation
+- Note:
+  > Space allocated to union type variable = MAX (size of members)<br/>
+  > Space allocated to struct type variable = SUM (size of members)<br/>
+- We can use only 1 member at a time.
+- If we insert data into 1 member of a union type variable, then it gets allocation. Now if we set data to another member of the same variable, the previously set member's data is lost.
+- Consider the union:
+
+  ```C
+    union berlin
+    {
+      int row;
+      char div;
+    } ub1;
+
+    int main()
+    {
+      ub1.div = 'B';
+      // Above allocation is done and value is stored
+      ub1.row = 44;
+      // This allocation is done and value is stored, but the value of the div member is lost
+      return 0;
+    }
+  ```
+
 ---
 
-## Continue Where you left off
+## Functions in C
+
+- When we want to write functions in C code we need to ensure the following are implemented/written in the code:
+  - Declaration
+    - eg: float func_name(int, int, float);
+    - eg2: int* fun1(int *); // input and input both are integer pointers
+    - eg3: int fun(void);
+    - eg4: int fun()
+      - both eg 3 and 4 are allowed
+    - eg5: void fun();
+  - Definition
+  - Call
+- In functions parameters can be passed to them in 2 ways:
+  - Pass by Value
+  - Pass by Reference
+
+---
+
+## Storage Classes
+
+- A Process in the memory must have these 4 sections:
+
+  1. Code Section -> Compiled Instructions
+  2. Data Section -> Global and Static Variables
+  3. Heap Section -> Dynamic Memory Allocation
+  4. Stack Section -> Function Activation Records (Local Variables, Function parameters and return address)
+
+- There are 4 characteristics of a variable:
+
+  - Lifetime
+  - Scope
+  - Initialization
+  - Location of storage in memory
+
+- All Local variables are by default of the 'auto' storage class type.
+- By default, global int varaibles are initialised with 0 on declaration and local int variables are initialised with a garbage value on initialisation.
+
+- variables with 'register' storage class are stored in the registers of the CPU.
+- Say there are 40 'register' variables in the Program and the CPU has only 32 registers, in this case, the remaining are stored in the main memory stack.
+
+- Automatic variables in C are of 2 types:
+
+  1. auto
+  2. register
+
+- 'static' variables can be local or global.
+- Both local and global 'static' variables are stored in the Data Section and initialised with '0' on declaration by default.
+- The scope of a local 'static' variable is during the function or block of code, but its lifetime is during the entire program.
+- A static variable is initialised and its memory is allocated when the execution of a program begins and throughout the program the same memory is used.
+
+## FAR (Function Activation Record)
+
+- A Data structure that is activated when a function is invoked
+- It includes:
+  - Actual Parameters
+  - Number of Arguments
+  - Return Address
+  - Return Value
+  - Old Stack Pointer
+  - Local Data in Function/Procedure
+- This Activation record is created and stored in the stack
+
+## Recursion
+
+- Function calling itself
+- Recursive Function should have a base/exit condition for which it does not call itself
+- Types Of Recursion:
+  1. Direct
+     1. Tail Recursion (Very last stmt of fun body is recursive call)
+     2. Head Recursion (recursive call should not be the last stmt)
+     ```C
+      fun f() {
+        ---
+        ---
+        f()
+        ---
+      }
+     ```
+  2. Indirect
+     ```C
+      fun A() {
+        B()
+      }
+      fun B() {
+        A()
+      }
+     ```
+  3. Nested (Recursive call in another call)
+     ```C
+      fun (a, fun(b, c))
+     ```
+
+---
+
+## Defining Constants
+
+- We can do it in 2 ways:
+  1. using `const` keyword
+  - When declaring a variable using `const` keyword, we must provide the value at the time of declaration.
+  ```C
+    const int a = 7, b = 8; // Legal
+    const float pi; // Gives ERROR
+  ```
+  2. using macro
+  - We need to declare these at the top of the program, along with the header file inclusion statements and outside all the functions
+  - While defining macros, there is no datatype, no equal to statements and no semicolon
+  ```C
+    #define NAME value
+  ```
+
+## Macros
+
+- When using Macros, even before the compilation starts, the defined token is replaced by the value in the entire program, every place its used.
+- Macros can't be used for user defined data types.
+- Macros are also preprocessor directives
+- we can use macros with functions too like:
+  ```C
+    #include <stdio.h>
+    #define EXPRESSION1(A, B, C) (A * (B + 1) - (C % 223))
+    int main() {
+      printf("Expression result: %lf\n ", EXPRESSION1(38, 42, 4460));
+      return 0;
+    }
+  ```
+
+## Strings
+
+- Strings in C are char arrays
+  ```C
+    char A[] = "Hello"; // Stored as H, e, l, l, o, \0 i.e. 6 characters
+  ```
+- Null characters are automatically added at the end of string to denote the end of string
+
+## Dynamic Memory Allocation
+
+- Dynamic Memory gets allocated in the heap area of the process of the program
+- We have 3 functions which are included in the stdlib.h standard library in C. They are:
+
+  1. <b>malloc()</b> - for allocation
+     - Used to dynamically allocate a single large block of memory with the specified size
+     - It returns a pointer of type void (We need to explicitly type cast into our required type)
+     - If space is insufficient, allocation fails and returns a NULL pointer.
+     - It doesn't initialize memory i.e. garbage value is printed if we try to print
+     - Syntax:
+     ```C
+      // pointer = (cast-type*)malloc(size_in_bytes)
+      int *p = (int*)malloc(sizeof(int));
+     ```
+  2. <b>calloc()</b> - for allocation
+     - In malloc it allocates memory for a single block, with the help of calloc it gives us allocation for multiple blocks of memory
+     - calloc stands for 'contiguous allocation'
+     - Used to dynamically allocate specified number of blocks of memory of the specified type
+     - returns a pointer of type void which needs to be type casted and if space is insufficient, allocation fails and NULL is returned
+     - It initializes memory with 0
+     ```C
+      // pointer = (cast-type*)calloc(n, element_size_in_bytes)
+      int *p = (int*)calloc(100, sizeof(int));
+     ```
+  3. <b>free()</b> - for deallocation
+     - Used to deallocated only dynamically allocated spaces and not static memory
+     - eg:
+     ```C
+      int *p = (int*)malloc(sizeof(int));
+      free(p);
+      // Note: Here p might become a dangling pointer i.e. pointer points to a location which doesn't even exist
+      // To remove this dangling pointer the following line will do it
+      p = NULL;
+     ```
+
+- Using malloc() for data structures
+
+  - Say in Linked List we can have:
+
+  ```C
+    struct node {
+      char data;
+      struct node *next;
+    };
+
+    // Inside main or any function or block:
+    struct node *new_node = (struct node*)malloc(sizeof(struct node));
+  ```
+
+  - Say in Binary Tree we can have:
+
+  ```C
+    struct BTnode {
+      char data;
+      struct BTnode *LChild;
+      struct BTnode *LChild;
+    };
+
+    // Inside main or any function or block:
+    struct BTnode *new_node = (struct BTnode*)malloc(sizeof(struct BTnode));
+  ```
+
+## Double Pointer
+
+- A pointer which stores the address of another pointer
+- Example:
+
+  ```C
+    void main() {
+      int A[5] = {1, 2, 3, 4, 5};
+      int *p = &A[0];
+      int **pp = &p;
+
+      // Say we want to access A[2] i.e. '3', we can do it as either:
+      printf("\n%d ", A[2]);
+      // or (using pointers)
+      printf("\n%d ", *(p + 2));
+      printf("\n%d ", *(*pp + 2));
+    }
+  ```
+
+---
+
+## Useful Links for Youtube Tutorials
 
 https://www.youtube.com/watch?v=N74PmXAYtBU&list=PLbE3-5DBkMUkATaUFgDIpBDbfnym0qvsQ&index=3
 
