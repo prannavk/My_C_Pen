@@ -190,8 +190,11 @@ Note:
 - To store 2D arrays we have 2 schemes:
   - Row Major Order (Used by Default in C)
   - Column Major Order
-- In Row Major Order: Basically Address of `A[i][j]` = Base + Size of each element(i \* n + j)
-- In Column Major Order: Basically Address of `A[i][j]` = Base + Size of each element(j \* m + i)
+- Say in a Given 2D Array, we have `m_rows` rows and `n_cols` columns, then,
+  - In Row Major Order: Basically Address of `A[i][j]` is given as Base Address + Size of each element(i \* columns count + j), i.e.
+    >  A[i][j]<sub>RowMajorOrder</sub> = A + cell size \* (i \* n_cols + j);
+  - In Column Major Order: Basically Address of `A[i][j]` = Base Address + Size of each element(j \* row count + i), i.e.
+    >  A[i][j]<sub>ColumnMajorOrder</sub> = A + cell size \* (i + j \* m_rows);
 - Note: n is number of coulmns and m is number of rows
 - Declaration of Multidimensional arrays in C must have bounds for all dimensions except the first
 - Here, in 2D Arrays:
@@ -205,7 +208,7 @@ Note:
   - `&A[2][3]` -> Gives Address of an element
   - `&A[2][3] + 1` -> Addition by size of an element
 - Accessing an element inside a 2D array with the help of pointer dereferencing:
-  - For `A[i][j]` -> _(_(A + i) + j)
+  - For `A[i][j]` -> \*(\*(A + i) + j)
 
 ## Type Converions
 

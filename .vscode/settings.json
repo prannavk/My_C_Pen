@@ -3,6 +3,14 @@
         "NewPrg.C": "cpp",
         "sample.C": "cpp",
         "main.C": "cpp",
-        "AddPrg.C": "cpp"
+        "AddPrg.C": "cpp",
+        "CB1.C": "cpp",
+        "SOD.C": "cpp",
+        "RGCD.C": "cpp",
+        "W.C": "cpp",
+        "W1.C": "cpp",
+        "W2.C": "cpp",
+        "FP.C": "cpp",
+        "N1.C": "cpp"
     }
 }
