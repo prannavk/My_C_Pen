@@ -4,6 +4,12 @@ int whatThe();
 int r1();
 
 int main() {
+    int *p = '\0';
+    int *q = NULL;
+    if(p == q)
+        printf("Yes, Both are Null\n");
+    if(&p != &q)
+        printf("And, Not same Loc\n");    
     return whatThe();
 }
 

@@ -1,0 +1,24 @@
+# SampleCProject MakeFile
+
+#Specify Output Executable file name:
+op = mainoutput
+
+# Source Files:
+
+# Searching Programs
+sf = SearchMain.C SearchingImpl.C SearchingAlgo.H
+
+# Single Linked List
+sll = SLLMain.C SLLImpl.C SLL.H
+
+$(op):
+	gcc $(sll) -o output/$(op).exe
+
+run:
+	.\output/$(op)
+
+cleanOp:
+	del /Q output\$(op).*
+
+clean:
+	del /Q output\*

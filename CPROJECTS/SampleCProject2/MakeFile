@@ -1,0 +1,19 @@
+# SampleCProject MakeFile
+
+#Specify Output Executable file name:
+op = mainoutput
+
+# Source Files:
+sf = main.c funs.c funs.h funs2.c funs2.h
+
+$(op):
+	gcc $(sf) -o output/$(op).exe
+
+run:
+	.\output/$(op)
+
+cleanOp:
+	del /Q output\$(op).*
+
+clean:
+	del /Q output\*

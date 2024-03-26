@@ -1,0 +1,16 @@
+# Individual CPP Execution Make File
+
+# NOTE: To be able to run the following make commands, your cwd needs to be CPRGS dir
+
+#Speciy the name of your program here	
+ProgramName = prob1cf
+
+# commands:
+compileAndLink:
+	g++ -o outputs/$(ProgramName) $(ProgramName).cpp
+
+run:
+	.\outputs/$(ProgramName)
+
+clean:
+	del /Q outputs\$(ProgramName).*

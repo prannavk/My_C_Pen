@@ -8,7 +8,7 @@
   - Unary (required only 1 operand)
   - Binary (required 2 operands)
   - Ternary (required 3 operands)
-- Arithmetic Operators Set = `{ +, -, \*, /, %, ++, -- }` (++ and -- are unary, rest are binary)
+- Arithmetic Operators Set = `{ +, -, *, /, %, ++, -- }` (++ and -- are unary, rest are binary)
 - Bitwise Operators Set = `{ & is AND, | is OR, ^ is XOR , << is Left Shift, >> is Right Shift}`
 - Note:
   - For different data types:
@@ -186,17 +186,27 @@ Note:
 
 ## 2D Arrays
 
-- 2D Arrays initilized as `array_name[rows][columns]`
+- 2D Arrays are basically array of arrays.
+- 2D Arrays are initilized as `array_name[rows][columns]`
+  - Say For a Given 2D Array, we have `m_rows` rows and `n_cols` columns visually, then, programatically, a 2D array is an a `array of 'm' 1-D Arrays each having a fixed given size of elements`
+- Following ways are legal to initialize a 2D Array:
+  > int ar[2][3] = { 1, 2, 3, 4, 5, 6 }; <br/>
+  > int ar[2][3] = { { 1, 2, 3 }, { 4, 5, 6 } }; <br/>
+  > int ar[][3] = { 1, 2, 3, 4, 5, 6 }; <br/> <!--Here We are initializing without specifying row count, which is LEGAL-->
+- The following is not valid and gives a comiple time error i.e. specifying row count but not specifying column count.
+  > ~~int ar[2][] = { 1, 2, 3, 4, 5, 6 };~~ <br/>
+- *Special Point*: Note: In case of 2D Arrays, `ar == &ar == *ar` (Only 2D Arrays)
 - To store 2D arrays we have 2 schemes:
   - Row Major Order (Used by Default in C)
   - Column Major Order
-- Say in a Given 2D Array, we have `m_rows` rows and `n_cols` columns, then,
+- As m is number of rows and n is number of coulmns Hence last element is A[m - 1][n - 1], Also...
   - In Row Major Order: Basically Address of `A[i][j]` is given as Base Address + Size of each element(i \* columns count + j), i.e.
     >  A[i][j]<sub>RowMajorOrder</sub> = A + cell size \* (i \* n_cols + j);
+    - *Note*: In case the Indexing starts from 1 instead of 0, we modify the formula as: A[i][j]<sub>RowMajorOrder</sub> = A + cell size \* ((i - 1) \* n_cols + (j - 1));
   - In Column Major Order: Basically Address of `A[i][j]` = Base Address + Size of each element(j \* row count + i), i.e.
     >  A[i][j]<sub>ColumnMajorOrder</sub> = A + cell size \* (i + j \* m_rows);
-- Note: n is number of coulmns and m is number of rows
-- Declaration of Multidimensional arrays in C must have bounds for all dimensions except the first
+    - *Note*: In case the Indexing starts from 1 instead of 0, we modify the formula as: A[i][j]<sub>RowMajorOrder</sub> = A + cell size \* ((i - 1) + (j - 1) \* m_rows);
+- By default, Declaration of Multidimensional arrays in C must have bounds for all dimensions except the first (i.e. its ok if row count not given)
 - Here, in 2D Arrays:
   - `A` -> Gives address of first row
   - `A + 1` -> Addition by Size of row
